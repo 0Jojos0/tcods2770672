@@ -6,7 +6,7 @@
         $conx = new PDO("mysql:host=".HOST.";dbname=".DBNAME."", USER, PASS);
 
         // if ($conx) {
-        //     echo "<h4>Connection DB Success ✅ </h4>";
+            echo "<h4>Connection DB Success ✅ </h4>";
         // }
 
     } catch (PDOException $e) {
@@ -31,7 +31,7 @@
     function addPet($conx, $data) {
         try {
             $sql = "INSERT INTO pets (name, photo, kind, weight, 
-                                      age, breed, location)
+                                    age, breed, location)
                     VALUES (:name, :photo, :kind, :weight, 
                             :age, :breed, :location)";
             $smt = $conx->prepare($sql); 

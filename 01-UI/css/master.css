@@ -298,7 +298,6 @@ main {
                             transform: scale(1);
 
                         }
-<<<<<<< HEAD
 
                     }
                     td:nth-child(1) {
@@ -308,8 +307,6 @@ main {
                             border: 2px solid var(--color-pri);
                             width: 60px;
                         }
-=======
->>>>>>> 485a1beaf5311619c8561fb0150f6c9be4aabfbd
                     }
                     td:nth-child(2) {
                         display: flex;
@@ -438,11 +435,7 @@ main {
                 }
             }
         }
-<<<<<<< HEAD
         article.bgcolor {
-=======
-        article:nth-child(odd) {
->>>>>>> 485a1beaf5311619c8561fb0150f6c9be4aabfbd
             background-color: var(--color-frd);
         }
 
@@ -473,7 +466,3 @@ main {
     }
     
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 485a1beaf5311619c8561fb0150f6c9be4aabfbd
