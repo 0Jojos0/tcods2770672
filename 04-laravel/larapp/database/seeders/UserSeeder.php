@@ -39,10 +39,5 @@ class UserSeeder extends Seeder
             'password'   => bcrypt('12345'),
             'created_at' => now()
         ]);
-
-
-
-
-
     }
 }
