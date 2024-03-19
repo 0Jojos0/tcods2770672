@@ -16,18 +16,12 @@
         @csrf
         <img src="{{ asset('images/ico-upload-pet.svg') }}" id="upload" width="240px" alt="Upload">
         <input type="file" name="photo" id="photo" accept="image/*">
-        <input type="number" name="document" placeholder="Document" value="{{ old('document') }}">
-        <input type="text" name="fullname" placeholder="Full Name" value="{{ old('fullname') }}">
-        <select name="gender">
-            <option value="">SELECT GENDER...</option>
-            <option value="Female" @if(old('gender') == 'Female') selected @endif>Female</option>
-            <option value="Male" @if(old('gender') == 'Male') selected @endif>Male</option>
-        </select>
-        <input type="date" name="birthdate" placeholder="BirthDate" value="{{ old('birthdate') }}">
-        <input type="text" name="phone" placeholder="Phone Number" value="{{ old('phone') }}">
-        <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="password_confirmation" placeholder="Confirmed Password">
+        <input type="text" name="name" placeholder="Name" value="{{ old('name') }}">
+        <input type="text" name="kind" placeholder="Kind" value="{{ old('kind') }}">
+        <input type="text" name="weight" placeholder="Weight" value="{{ old('weight') }}">
+        <input type="numeric" name="age" placeholder="Age" value="{{ old('age') }}">
+        <input type="text" name="breed" placeholder="Breed" value="{{ old('breed') }}">
+        <input type="text" name="location" placeholder="Location" value="{{ old('location') }}">
         <button type="submit">Add</button>
     </form>
 </section>
