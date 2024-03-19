@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
 :root {
-    --color-pri: #022b3a;
-    --color-sec: #1f7a8c;
+    --color-pri: #ff9b29;
+    --color-sec: #00d68f;
     --color-trd: #bfdbf7;
     --color-frd: #e1e5f2;
     --font-main: Poppins, sans-serif;
@@ -192,6 +192,13 @@ main {
         }
     }
 
+    header.nav.level-2   {
+        a:last-of-type {
+            visibility: hidden;
+            pointer-events: none;
+        }
+    }
+
     /* - - - - - - - - - - - - - - - - - - - - - - */
     /* D A S H B O A R D */
     section.dashboard {
@@ -302,7 +309,6 @@ main {
                         }
                         a:is(:hover) img {
                             transform: scale(1);
-
                         }
 
                     }
@@ -322,6 +328,28 @@ main {
                             font-weight: 300;
                             font-size: 14px;
                         }
+                    }
+                    td:nth-child(3) {
+                        display: flex;
+                        form {
+                            margin: 0;
+                            padding: 0;
+                            button {
+                                background: none;
+                                border: none;
+                                display: block;
+                                height: 40px;
+                                cursor: pointer;
+                                transform: scale(0.9);
+                                transition: all 0.2s ease-in;
+                                width: 40px;
+                                padding: 0;
+                                &:hover {
+                                    transform: scale(1);
+                                }
+                            }
+                        }
+                        
                     }
                 }
             }
@@ -375,6 +403,10 @@ main {
             height: 280px;
             width: 280px;
         }
+        p.role {
+            color: #fff;
+            font-size: 1.4rem;
+        }
         div.info {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -384,7 +416,7 @@ main {
 
             p {
                 border-radius: 50px;
-                font-size: 18px;
+                font-size: 16px;
                 background-color: var(--color-frd);
                 padding: 10px;
                 margin: 0;
@@ -540,6 +572,45 @@ main {
     div.menu.open {
         top: 0;
         opacity: 1;
+    }
+
+    table {
+        tfoot {
+            nav {
+                ul.pagination {
+                    list-style: none;
+                    padding: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    li {
+                        a:is(:link, :visited) {
+                            border: 2px solid #fff;
+                            border-radius: 30px;
+                            color: #fff;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 2rem;
+                            text-decoration: none;
+                            transition: all 0.2s ease-in;
+                            height: 50px;
+                            width: 50px;
+                        }
+                        a[rel=prev]:hover {
+                            background-color: #fff3;
+                            transform: translateX(-6px);
+                        }
+                        a[rel=next]:hover {
+                            background-color: #fff3;
+                            transform: translateX(6px);
+                        }
+                    }
+                    li.disabled {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
     }
     
 }
