@@ -12,17 +12,18 @@
     </a>
 </header>
 <section class="register create">
+    <h1>Edit Pet</h1>
     <form action="{{ url('pets/'.$pet->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('put')
         <input type="hidden" name="photoactual" value="{{ $pet->photo }}">
         <img src="{{ asset('images/'.$pet->photo) }}" id="upload" width="240px" alt="Upload">
-        <input type="file" name="photo" id="photo" accept="image/*">
-        <input type="number" name="document" placeholder="Document" value="{{ old('document', $pet->document) }}">
-        <input type="text" name="fullname" placeholder="Full Name" value="{{ old('fullname', $pet->fullname) }}">
-        <input type="date" name="birthdate" placeholder="BirthDate" value="{{ old('birthdate', $pet->birthdate) }}">
-        <input type="text" name="phone" placeholder="Phone Number" value="{{ old('phone', $pet->phone) }}">
-        <input type="email" name="email" placeholder="Email" value="{{ old('email', $pet->email) }}">
+        <input type="text" name="name" placeholder="Name" value="{{ old('name', $pet->name) }}">
+        <input type="text" name="kind" placeholder="Kind" value="{{ old('kind', $pet->kind) }}">
+        <input type="number" name="weight" placeholder="Weight" value="{{ old('weight', $pet->weight) }}">
+        <input type="number" name="age" placeholder="Age" value="{{ old('age', $pet->age) }}">
+        <input type="text" name="breed" placeholder="Breed" value="{{ old('breed', $pet->breed) }}">
+        <input type="text" name="location" placeholder="Location" value="{{ old('location', $pet->location) }}">
         <button type="submit">Edit</button>
     </form>
 </section>

@@ -15,7 +15,7 @@
     <h1>Module Pets</h1>
     <a class="add" href="{{ url('pets/create') }}">
         <img src="{{ asset('images/ico-add.svg') }}" width="30px" alt="Add">
-        Add Pets
+        Add Pet
     </a>
     <table>
         <tbody>
@@ -25,14 +25,14 @@
                     <img src="{{ asset('images/'.$pet->photo) }}" alt="Pet">
                 </td>
                 <td>
-                    <span>{{ $pet->fullname }}</span>
-                    <span>{{ $pet->role }}</span>
+                    <span>{{ $pet->name }}</span>
+                    <span>{{ $pet->kind }}</span>
                 </td>
                 <td>
                     <a href="{{ url('pets/' . $pet->id) }}" class="show">
                         <img src="{{ asset('images/ico-show.svg') }}" alt="Show">
                     </a>
-                    <a href="{{ url('pet/' . $pet->id . '/edit') }}" class="edit">
+                    <a href="{{ url('pets/' . $pet->id . '/edit') }}" class="edit">
                         <img src="{{ asset('images/ico-edit.svg') }}" alt="Edit">
                     </a>
                     <form action="{{ url('pets/'.$pet->id) }}" method="post">
@@ -50,7 +50,6 @@
             <tr>
                 <td colspan="3">
                     {{ $pets->links('layouts.paginator') }}
-                    {{-- {{ $pets->links() }} --}}
                 </td>
             </tr>
         </tfoot>

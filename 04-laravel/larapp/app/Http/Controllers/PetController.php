@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class PetController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      */
@@ -32,13 +31,13 @@ class PetController extends Controller
     {
         //dd($request->all());
         $validated = $request->validate([
-            'name'  => ['required', 'string'],
-            'photo'  => ['required', 'image'],
-            'kind'    => ['required', 'string'],
-            'weight' => ['required', 'numeric'],
-            'age'     => ['required', 'numeric'],
-            'breed'     => ['required', 'string'],
-            'password'  => ['required', 'string']
+            'name'     => ['required', 'string'],
+            'photo'    => ['required', 'image'],
+            'kind'     => ['required', 'string'],
+            'weight'   => ['required', 'numeric'],
+            'age'      => ['required', 'numeric'],
+            'breed'    => ['required', 'string'],
+            'location' => ['required', 'string']        
         ]);
 
         if ($validated) {
@@ -49,21 +48,19 @@ class PetController extends Controller
             }
     
             $pet = Pet::create([
-                'name'  => $request->name,
-                'photo'     => $photo,
-                'kind'  => $request->kind,
-                'weight'    => $request->weight,
-                'age' => $request->age,
-                'breed'     => $request->breed,
-                'location'     => $request->location,
+                'name'     => $request->name,
+                'photo'    => $photo,
+                'kind'     => $request->kind,
+                'weight'   => $request->weight,
+                'age'      => $request->age,
+                'breed'    => $request->breed,
+                'location' => $request->location,
             ]);
 
             if ($pet) {
                 return redirect('pets')->with('message', 'The pet: '.$request->name.' was successfully added!');
             }
-
         }
-
     }
 
     /**
@@ -71,7 +68,6 @@ class PetController extends Controller
      */
     public function show(Pet $pet)
     {
-        //dd($user->toArray());
         return view('pets.show')->with('pet', $pet);
     }
 
@@ -90,12 +86,12 @@ class PetController extends Controller
     {
         //dd($request->all());
         $validated = $request->validate([
-            'name'  => ['required', 'string'],
-            'kind'    => ['required', 'string'],
-            'weight' => ['required', 'numeric'],
-            'age'     => ['required', 'numeric'],
-            'breed'     => ['required', 'string'],
-            'password'  => ['required', 'string']
+            'name'     => ['required', 'string'],
+            'kind'     => ['required', 'string'],
+            'weight'   => ['required', 'numeric'],
+            'age'      => ['required', 'numeric'],
+            'breed'    => ['required', 'string'],
+            'location' => ['required', 'string'] 
         ]);
 
         if ($validated) {
@@ -107,25 +103,23 @@ class PetController extends Controller
                 if (file_exists($image_path)) {
                         unlink($image_path);
                 }
-
                 $photo = time() . '.' . $request->photo->extension();
                 $request->photo->move(public_path('images'), $photo);
             } else {
                 $photo = $request->photoactual;
             }
     
-            $pet->name    = $request->document;
-            $pet->photo   = $photo;
-            $pet->kind    = $request->fullname;
-            $pet->weight  = $request->gender;
-            $pet->age     = $request->birthdate;
-            $pet->breed     = $request->phone;
-            $pet->location  = $request->email;
+            $pet->name     = $request->name;
+            $pet->photo    = $photo;
+            $pet->kind     = $request->kind;
+            $pet->weight   = $request->weight;
+            $pet->age      = $request->age;
+            $pet->breed    = $request->breed;
+            $pet->location = $request->location;
 
             if ($pet->save()) {
                 return redirect('pets')->with('message', 'The pet: '.$request->name.' was successfully edited!');
             }
-
         }
     }
 

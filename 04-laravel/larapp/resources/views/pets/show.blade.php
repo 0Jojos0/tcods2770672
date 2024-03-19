@@ -14,12 +14,11 @@
 <section class="show">
     <h1>Show Pet</h1>
     <img src="{{ asset('images/'.$pet->photo) }}" class="photo" alt="Photo">
-    <p class="role">{{ $pet->role }}</p>
     <div class="info">
         <p>{{ $pet->name }}</p>
         <p>{{ $pet->kind }}</p>
-        <p>{{ $pet->weight }}</p>
-        <p>{{ $pet->age }}</p>
+        <p>{{ $pet->weight }} Kls</p>
+        <p>{{ $pet->age }} Years</p>
         <p>{{ $pet->breed }}</p>
         <p>{{ $pet->location }}</p>
     </div>

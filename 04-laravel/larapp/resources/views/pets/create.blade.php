@@ -12,14 +12,15 @@
     </a>
 </header>
 <section class="register create">
+    <h1>Add Pet</h1>
     <form action="{{ route('pets.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <img src="{{ asset('images/ico-upload-pet.svg') }}" id="upload" width="240px" alt="Upload">
         <input type="file" name="photo" id="photo" accept="image/*">
         <input type="text" name="name" placeholder="Name" value="{{ old('name') }}">
         <input type="text" name="kind" placeholder="Kind" value="{{ old('kind') }}">
-        <input type="text" name="weight" placeholder="Weight" value="{{ old('weight') }}">
-        <input type="numeric" name="age" placeholder="Age" value="{{ old('age') }}">
+        <input type="number" name="weight" placeholder="Weight" value="{{ old('weight') }}">
+        <input type="number" name="age" placeholder="Age" value="{{ old('age') }}">
         <input type="text" name="breed" placeholder="Breed" value="{{ old('breed') }}">
         <input type="text" name="location" placeholder="Location" value="{{ old('location') }}">
         <button type="submit">Add</button>
